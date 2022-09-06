@@ -13,12 +13,14 @@
     <link rel="stylesheet" href=" {% static 'css/misc.css' %} ">
 </head>
 <body class="h-screen bg-gray-100 flex justify-center items-center">
-    <main class="w-screen">
+    <main class="w-screen md:w-10/12 lg:w-8/12">
        <form action="" method="POST" class="flex flex-col p-4">
         {{form}}
         <input type="submit" name="regex_submit" class="rounded-full bg-gray-700 py-2 text-white hover:bg-gray-600">
     </form>
-    <div class="bg-gray-300 h-20 mt-10 p-4"></div>
+    <div class="bg-gray-300 h-20 mt-10 p-4 border border-gray-700 flex items-center justify-center">
+        <p class="text-xl"></p>
+    </div>
     </main>
 </body>
 </html>
