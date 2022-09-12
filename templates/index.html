@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href=" {% static 'css/main.css' %} ">
     <link rel="stylesheet" href=" {% static 'css/misc.css' %} ">
+    <style>
+        .message_container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: .5em;
+        }
+    </style>
 </head>
 <body class="h-screen bg-gray-100 flex justify-center items-center">
     <main class="w-screen md:w-10/12 lg:w-8/12">
@@ -19,8 +27,12 @@
         {{form}}
         <input type="submit" name="regex_submit" class="rounded-full bg-gray-700 py-2 text-white hover:bg-gray-600">
     </form>
-    <div class="bg-gray-300 h-20 mt-10 p-4 border border-gray-700 flex items-center justify-center">
-        <p class="text-xl"></p>
+    <div class="message_container bg-gray-300 h-20 mt-10 p-4 border border-gray-700">
+        {% for message in messages %}
+            <p class="text-xl">
+                {{message}}
+            </p>    
+        {% endfor %}
     </div>
     </main>
 </body>

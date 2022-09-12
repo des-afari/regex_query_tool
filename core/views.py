@@ -9,13 +9,14 @@ def index(request):
         expression = request.POST['expression']
         text = request.POST['text']
 
-        pattern = re.compile(expression)
+        pattern = re.compile(r"%s" %expression, re.IGNORECASE)
 
         matches = pattern.finditer(text)
 
         for match in matches:
-            messages.info(request, match.group(0))
-            return redirect('index')        
+            messages.info(request, f'{match.group(0)}')
+        
+        return redirect('index')        
 
     else:
         form = RegexForm()
