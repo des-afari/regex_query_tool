@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import RegexForm
 
 # Create your views here.
 def index(request):
-    form = RegexForm()
+    if request.method == 'POST' and 'regex_submit' in request.POST:
+        print('This works')
+        return redirect('index')
+        
 
-    context = {
-        'form': form
-    }
-    return render(request, 'index.html', context)
+    else:
+        form = RegexForm()
+        
+        context = {
+            'form': form
+        }
+
+        return render(request, 'index.html', context)
